@@ -1,0 +1,102 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Enum Set, Map 
+        enum Day {MON, TUE, SAT, WED, THU, FRI, SUN}
+        EnumMap<Day, String> days = new EnumMap<>(Day.class);
+        
+        days.put(Day.MON, "Gym");
+        days.put(Day.TUE, "Sports");
+        days.put(Day.THU, "Class");
+        days.put(Day.FRI, "Study");
+        days.put(Day.SAT, "Chill");
+        
+        System.out.println(days);
+}
+}
+
+
+// public class Main {
+//     public static void main(String[] args) {
+//         // Enum Set, Map 
+//         enum Day {MON, TUE, SAT, WED, THU, FRI, SUN}
+//         EnumSet<Day> days = EnumSet.of(Day.SUN, Day.MON, Day.WED, Day.TUE, Day.THU, Day.SAT);
+        
+        
+//         System.out.println(days);
+// }
+// }
+
+// class NameComp implements Comparator<Student> {
+//     public int compare(Student s1, Student s2) {
+//         return s1.name.compareTo(s2.name);
+//     }
+// }
+
+// // Comparable operator.
+// class Student implements Comparable<Student> {
+//     String name;
+//     int age;
+
+//     Student(String name, int age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     public int compareTo(Student s) {
+//         return this.age - s.age;
+//     }
+// }
+// public class Main {
+//     public static void main(String[] args) {
+//         List<Student> list = new ArrayList<>();
+
+//         list.add(new Student("C", 22));
+//         list.add(new Student("B", 18));
+//         list.add(new Student("A", 20));
+        
+//         for (Student s : list)
+//             System.out.println(s.name + " " + s.age);
+
+//         Collections.sort(list); // Comparable operator
+//         Collections.sort(list, new NameComp()); // Comparator operator
+
+//         for (Student s : list)
+//             System.out.println(s.name + " " + s.age);
+//     }
+// }
+
+
+// import java.util.*;
+
+// public class MapDemo {
+//     public static void main(String[] args) {
+//         Map<String, Integer> marks = new HashMap<>();
+
+//         marks.put("Harshit", 90);
+//         marks.put("Mahak", 85);
+//         marks.put("Sanket", 85);
+//         marks.put("Pratiksha", 78);
+
+//         System.out.println(marks);
+
+//         System.out.println("Aman's Marks: " + marks.get("Aman"));
+//     }
+// }
+
+// HashMAP, LinkedMAP, TreeMAP
+// Map<Integer, String> map1 = new HashMap<>();
+// Map<Integer, String> map2 = new LinkedHashMap<>();
+// Map<Integer, String> map3 = new TreeMap<>();
+
+// map1.put(3, "C");
+// map1.put(1, "A");
+// map1.put(2, "B");
+
+// map2.putAll(map1);
+// map3.putAll(map1);
+
+// System.out.println("HashMap: " + map1);
+// System.out.println("LinkedHashMap: " + map2);
+// System.out.println("TreeMap: " + map3);
