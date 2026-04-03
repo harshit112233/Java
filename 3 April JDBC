@@ -1,0 +1,115 @@
+package hey;
+import java.sql.*;
+
+public class loginlogout {
+	public static void main(String[] args) {
+		try {
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/harshit", 
+				"root", 
+				"12345678");
+	
+		System.out.println("Connected Successfully!!!");
+		
+		String query = "Insert into trycatch (name, id, phno) values (?, ?, ?)";
+		
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setString(1, "Sanket");
+		ps.setInt(2, 21);
+		ps.setInt(3, 98734);
+		
+		int rows = ps.executeUpdate();
+		
+		String query1 = "Select * from trycatch where id <= 5";
+		
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery(query1);
+		while(rs.next()) {
+			System.out.println(rs.getString("name"));
+			System.out.println(rs.getInt("id"));
+			System.out.println(rs.getString(2));
+		}
+		
+		// Create 
+		String query2 = "Insert into trycatch (name, id, phno) values (?, ?, ?)";
+		
+		PreparedStatement ps1 = con.prepareStatement(query2);
+		ps.setString(1, "Viraj");
+		ps.setInt(2, 22);
+		ps.setInt(3, 93483);
+		
+		ps.executeUpdate();
+		
+		// Read
+		String query3 = "Select * from trycatch where id <7";
+		Statement stmt1 = con.createStatement();
+		ResultSet rs1 = stmt1.executeQuery(query3);
+		
+		while(rs.next()) {
+			System.out.println(rs.getInt("id")+ " " +rs.getString("name")+" "+rs.getString("phno"));
+		}
+
+		// Update/Modify Data
+		
+		String query4 = "Update trycatch set name = ? where id = ?";
+		PreparedStatement ps2 = con.prepareStatement(query4);
+		ps2.setString(1, "Mahak");
+		ps2.setInt(2, 22);
+		
+		ps2.executeUpdate();
+		
+		// Delete / Remove Data from Table
+		String query5 = "Delete from users where  id = ?";
+		PreparedStatement ps3 = con.prepareStatement(query5);
+		ps.setInt(1, 21);
+		ps.executeUpdate();
+		
+con.close();		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+		}
+
+}
+
+
+
+
+## Next file
+
+package hey;
+
+import java.sql.*;
+
+public class Adminis {
+	
+	public static void main(String[] args) {
+		try {
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/harshit", 
+				"root", 
+				"12345678");
+	
+		System.out.println("Connected Successfully!!!");
+		
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from trycatch;");
+		
+		while(rs.next()) {
+			System.out.println(rs.getString("name"));
+			System.out.println(rs.getString(2));
+		}
+con.close();		
+		
+
+		
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+		}
+
+}
+
