@@ -1,0 +1,184 @@
+package hey;
+
+import java.io.*;
+public class appending {
+	public static void main(String[] args) throws IOException {
+		
+		//appending
+		FileWriter fw = new FileWriter("/Users/hunny/Codes/CODE/sent_log.txt", true);
+		fw.write("Hey Myname is Harshit and I am a Java Developer \nI love Coding");
+		fw.close();
+		System.out.println("File written Successfully");
+		
+		BufferedReader br = new BufferedReader(new FileReader("/Users/hunny/Codes/CODE/sent_log.txt"));
+		
+		//reading
+		String line;
+
+		while ((line = br.readLine()) != null) {
+          System.out.println(line);
+		}
+
+		br.close();
+	}
+	
+}
+
+
+//public class fileh {
+//  public static void main(String[] args) throws IOException {
+//      BufferedReader br = new BufferedReader(new FileReader("/Users/hunny/Codes/CODE/sent_log.txt"));
+//      String line;
+//
+//      while ((line = br.readLine()) != null) {
+//          System.out.println(line);
+//      }
+//
+//      br.close();
+//  }
+//}
+
+//FileWriter - To write a file into txt
+//public class fileh {
+//	public static void main(String[] args) throws IOException {
+//		FileWriter fw = new FileWriter("/Users/hunny/Codes/CODE/sent_log.txt");
+//		fw.write("Hey Myname is Harshit and I am a Java Developer \nI love Coding");
+//		fw.close();
+//		
+//		System.out.println("File written Successfully");
+//	}
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package hey;
+
+import java.io.*;
+
+
+
+//renaming a file - renameTo
+public class fileh {
+public static void main(String[] args) throws IOException {
+	File oldfile  = new File("test.txt");
+	File newfile = new File("corejava.txt");
+	
+	if (oldfile.renameTo(newfile)) {
+		System.out.println("File File renamed");
+	} else {
+		System.out.println("File does not exist.");
+	}
+}
+}
+
+
+//deleting a file
+//public class fileh {
+//public static void main(String[] args) throws IOException {
+//	File file  = new File("tmv.txt");
+//	
+//	if (file.delete()) {
+//		System.out.println("File Deleted");
+//	} else {
+//		System.out.println("File does not exist.");
+//	}
+//}
+//}
+
+// Creating a file
+//public class fileh {
+//public static void main(String[] args) throws IOException {
+//	File file  = new File("test.txt");
+//	
+//	if (file.createNewFile()) {
+//		System.out.println("File Created");
+//	} else {
+//		System.out.println("File already Exists hence not created.");
+//	}
+//}
+//}
+
+
+//FileWriter - To write a file into txt
+//public class fileh {
+//	public static void main(String[] args) throws IOException {
+//		FileWriter fw = new FileWriter("/Users/hunny/Codes/CODE/sent_log.txt");
+//		fw.write("Hey Myname is Harshit and I am a Java Developer \nI love Coding");
+//		fw.close();
+//		
+//		System.out.println("File written Successfully");
+//	}
+//}
+
+
+// Reading a file.
+//public class fileh {
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new FileReader("/Users/hunny/Codes/CODE/sent_log.txt"));
+//        String line;
+//
+//        while ((line = br.readLine()) != null) {
+//            System.out.println(line);
+//        }
+//
+//        br.close();
+//    }
+//}
+
+
+
+
+// Serialization 
+
+package hey;
+
+import java.io.*;
+
+class Student implements Serializable{
+	int id;
+	String name;
+	
+	Student(int id, String name){
+		this.id = id;
+		this.name = name;
+	}
+}
+public class SerExample {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+//		Student s = new Student(1, "Vijay");
+//		
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.dat"));
+//		
+//		oos.writeObject(s);
+//		
+//		oos.close();
+//		System.out.println("Object added");
+//		
+		ObjectInputStream ois = new ObjectInputStream (new FileInputStream ("student.dat"));
+		
+		Student sa = (Student) ois.readObject();
+		System.out.println(sa.id+" abc "+ sa.name);
+		
+		ois.close();
+		
+	}
+	
+
+}
